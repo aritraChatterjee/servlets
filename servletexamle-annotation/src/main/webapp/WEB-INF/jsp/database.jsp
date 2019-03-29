@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Servlet Example</title>
 </head>
 <body>
-    This is mypage served @: <%= request.getContextPath() %>
+    This is database page served @: <%= request.getContextPath() %><br/>
+    Database @ <%= request.getAttribute("DATABASE_HOST") %> : <%= request.getAttribute("DATABASE_PORT") %>
 </body>
 </html>
