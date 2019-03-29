@@ -6,5 +6,6 @@ https://maven.apache.org/plugins/maven-war-plugin/examples/adding-filtering-webr
 
 ### docker commands for servletexamle-annotation application
 servletexamle-annotation? docker build -t web-app-tomcat -f .\docker\Dockerfile .
+
 servletexamle-annotation? docker container run -p 9090:8080 web-app-tomcat
 
