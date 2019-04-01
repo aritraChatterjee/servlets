@@ -1,0 +1,36 @@
+version: '3.2'
+services:
+    web-application:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        image: aritra.edu/web-app
+        ports:
+        - "9001:8080"
+        networks:
+        - web-app-net
+        container_name: web-app
+        environment:
+        - DATABASE_HOST=postgresdb
+        - DATABASE_PORT=5432
+        - DATABASE_NAME=testdb
+        - DATABASE_USER=dbuser
+        - DATABASE_PASSWORD=pass
+        depends_on:
+        - postgres-database
+    
+    postgres-database:
+        image: postgres:10.4
+        ports:
+        - "15432:5432"
+        networks:
+        - web-app-net
+        container_name: postgresdb
+        environment:
+        - POSTGRES_USER=dbuser
+        - POSTGRES_PASSWORD=pass
+        - POSTGRES_DB=testdb
+
+networks:
+    web-app-net:
+        driver: "bridge"
