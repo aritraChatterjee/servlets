@@ -9,3 +9,5 @@ servletexamle-annotation# docker build -t web-app-tomcat -f .\docker\Dockerfile 
 
 servletexamle-annotation# docker container run -p 9090:8080 web-app-tomcat
 
+servletexamle-annotation# docker-compose up
+
