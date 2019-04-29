@@ -21,6 +21,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
+				<configuration>
+                    <outputDirectory>path/to the/server deployment/folder</outputDirectory>
+                </configuration>
             </plugin>
         </plugins>
         <finalName>web-app</finalName>
