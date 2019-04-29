@@ -1,6 +1,6 @@
 # servlets
-examples using
-a> web.xml
+examples using <br/>
+a> web.xml  <br/>
 b> annotation
 
 ### maven war-plugin reference
