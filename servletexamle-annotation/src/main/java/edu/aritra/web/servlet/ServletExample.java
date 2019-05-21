@@ -2,6 +2,8 @@ package edu.aritra.web.servlet;
 
 import edu.aritra.web.db.DBAccess;
 import edu.aritra.web.db.Student;
+import edu.aritra.web.service.ExampleService;
+import org.springframework.context.ApplicationContext;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,12 +19,19 @@ import java.util.Map;
 public class ServletExample extends HttpServlet {
 
     private Map<String, String> environmentProperties;
+    private ExampleService service;
 
     public ServletExample() {
         super();
         environmentProperties = System.getenv();
     }
 
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        ApplicationContext applicationContext = (ApplicationContext) getServletContext().getAttribute("applicationContext");
+        service = applicationContext.getBean(ExampleService.class);
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -33,6 +42,8 @@ public class ServletExample extends HttpServlet {
 
         String jspPath;
         if (path.equals("/home")) {
+            String msg = service.execute();
+            request.setAttribute("message", msg);
             jspPath = "jsp" + path + ".jsp";
         } else {
             if (path.equals("/data")) {

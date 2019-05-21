@@ -8,5 +8,7 @@
 </head>
 <body>
     This is home served @: <%= request.getContextPath() %> <br/>
+    <%if(null!=request.getAttribute("message"))%>
+    <%= (String)request.getAttribute("message") %>
 </body>
 </html>
