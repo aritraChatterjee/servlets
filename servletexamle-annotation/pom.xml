@@ -19,11 +19,18 @@
     <build>
         <plugins>
             <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
                 <configuration>
-                    <outputDirectory>path\to the\server deployment\folder</outputDirectory>
+                    <outputDirectory>C:\Users\aritra.chatterjee\Documents\Data\installs\apache-tomcat-9.0.20\webapps</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>
